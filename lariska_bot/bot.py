@@ -1,8 +1,9 @@
 import logging
 
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher
 from aiogram.utils.executor import start_webhook
 
+import lariska_bot.handlers.handler
 from lariska_bot.config import (
     TOKEN, WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 )
@@ -18,11 +19,6 @@ async def on_startup(dispatcher):
 
 async def on_shutdown(dispatcher):
     await bot.delete_webhook()
-
-
-@dp.message_handler()
-async def echo(message: types.Message):
-    await message.answer(message.text)
 
 
 def main():
