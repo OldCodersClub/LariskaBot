@@ -19,11 +19,11 @@ WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = os.getenv('PORT', default=8000)
 
 
-async def on_startup():
+async def on_startup(dispatcher):
     await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
 
 
-async def on_shutdown():
+async def on_shutdown(dispatcher):
     await bot.delete_webhook()
 
 
