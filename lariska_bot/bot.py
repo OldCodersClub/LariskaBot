@@ -3,7 +3,7 @@ import logging
 from aiogram import Bot, Dispatcher
 from aiogram.utils.executor import start_webhook
 
-import lariska_bot.handlers.handler
+import lariska_bot.handlers
 from lariska_bot.config import (
     TOKEN, WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 )
