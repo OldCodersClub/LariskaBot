@@ -3,7 +3,7 @@ def get_hello():
 
 
 def get_start_here():
-    return '''Начни отсюда:\nhttps://github.com/OldCodersClub/faq'''
+    return 'Начни отсюда:\nhttps://github.com/OldCodersClub/faq'
 
 
 def get_repo_list():
