@@ -18,3 +18,8 @@ async def repo_answer(message: types.Message):
 @dp.message_handler(Text(contains=['наш репозиторий'], ignore_case=True))
 async def repo_reply(message: types.Message):
     await message.reply(get_repo())
+
+
+@dp.message_handler(Text(contains=['лариска', 'дура'], ignore_case=True))
+async def call_names_reply(message: types.Message):
+    await message.reply(dont_call_names())

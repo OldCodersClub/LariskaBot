@@ -12,3 +12,7 @@ def get_repo_list():
 
 def get_repo():
     return 'https://github.com/OldCodersClub'
+
+
+def dont_call_names():
+    return 'Не обзывайся, дорогуша'
