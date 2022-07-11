@@ -6,7 +6,7 @@ from lariska_bot.config import (
     WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 )
 from lariska_bot.dispatcher import bot, dp
-import lariska_bot.handlers
+from lariska_bot.handlers import handler
 
 
 async def on_startup(dispatcher):
