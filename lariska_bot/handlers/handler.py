@@ -16,7 +16,12 @@ async def repo_answer(message: types.Message):
 
 
 @dp.message_handler(Text(contains=['наш репозиторий'], ignore_case=True))
-async def repo_reply(message: types.Message):
+async def our_repository_reply(message: types.Message):
+    await message.reply(get_repo())
+
+
+@dp.message_handler(Text(contains=['наша репа'], ignore_case=True))
+async def our_repo_reply(message: types.Message):
     await message.reply(get_repo())
 
 
