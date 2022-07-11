@@ -19,4 +19,4 @@ def get_repo():
 
 
 def dont_call_names():
-    return 'Не обзывайся, дорогуша'
+    return 'Не обзывайся, дорогуша!'
