@@ -9,6 +9,7 @@ def get_start_here():
 def get_repo_list():
     return [
         'repo',
+        'repository',
         'репа',
         'репозиторий',
     ]
