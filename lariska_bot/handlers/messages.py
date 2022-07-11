@@ -27,5 +27,9 @@ def get_lariska_bot():
     )
 
 
+def get_forks():
+    return 'Можете форкать, реквестить и деплоить'
+
+
 def dont_call_names():
     return 'Не обзывайся, дорогуша!'

@@ -33,6 +33,7 @@ async def our_repo_reply(message: types.Message):
 @dp.message_handler(Text(contains=['лариска', 'бот'], ignore_case=True))
 async def lariska_bot_reply(message: types.Message):
     await message.reply(get_lariska_bot())
+    await message.answer(get_forks())
 
 
 @dp.message_handler(Text(contains=['лариска', 'дура'], ignore_case=True))
