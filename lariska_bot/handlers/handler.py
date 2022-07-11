@@ -1,6 +1,6 @@
 from aiogram import types
 
-from lariska_bot.bot import dp
+from lariska_bot.dispatcher import dp
 
 
 @dp.message_handler()

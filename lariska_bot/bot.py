@@ -1,16 +1,12 @@
 import logging
 
-from aiogram import Bot, Dispatcher
 from aiogram.utils.executor import start_webhook
 
-import handlers
 from lariska_bot.config import (
-    TOKEN, WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
+    WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 )
-
-
-bot = Bot(token=TOKEN)
-dp = Dispatcher(bot)
+from lariska_bot.dispatcher import bot, dp
+import lariska_bot.handlers
 
 
 async def on_startup(dispatcher):
