@@ -8,3 +8,8 @@ from lariska_bot.handlers.messages import *
 @dp.message_handler(Text(contains=['с чего начать'], ignore_case=True))
 async def where_to_begin(message: types.Message):
     await message.reply(get_start_here())
+
+
+@dp.message_handler(commands=get_repo())
+async def repo_message(message: types.Message):
+    await message.answer('https://github.com/OldCodersClub')
