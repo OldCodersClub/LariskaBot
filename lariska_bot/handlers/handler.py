@@ -10,6 +10,11 @@ async def where_to_begin(message: types.Message):
     await message.reply(get_start_here())
 
 
-@dp.message_handler(commands=get_repo())
-async def repo_message(message: types.Message):
-    await message.answer('https://github.com/OldCodersClub')
+@dp.message_handler(commands=get_repo_list())
+async def repo_answer(message: types.Message):
+    await message.answer(get_repo())
+
+
+@dp.message_handler(Text(contains=['наш репозиторий'], ignore_case=True))
+async def repo_reply(message: types.Message):
+    await message.reply(get_repo())
