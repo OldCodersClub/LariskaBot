@@ -30,6 +30,11 @@ async def our_repo_reply(message: types.Message):
     await message.reply(get_repo())
 
 
+@dp.message_handler(Text(contains=['лариска', 'бот'], ignore_case=True))
+async def lariska_bot_reply(message: types.Message):
+    await message.reply(get_lariska_bot())
+
+
 @dp.message_handler(Text(contains=['лариска', 'дура'], ignore_case=True))
 async def call_names_reply(message: types.Message):
     await message.reply(dont_call_names())

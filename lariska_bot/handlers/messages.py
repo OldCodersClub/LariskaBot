@@ -19,5 +19,13 @@ def get_repo():
     return 'https://github.com/OldCodersClub'
 
 
+def get_lariska_bot():
+    return (
+        'Да. Я бот.'
+        '\nВот репозиторий:'
+        '\nhttps://github.com/OldCodersClub/LariskaBot'
+    )
+
+
 def dont_call_names():
     return 'Не обзывайся, дорогуша!'
