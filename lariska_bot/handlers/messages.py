@@ -33,3 +33,7 @@ def get_forks():
 
 def dont_call_names():
     return 'Не обзывайся, дорогуша!'
+
+
+def get_youtube():
+    return 'https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos'

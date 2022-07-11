@@ -39,3 +39,8 @@ async def lariska_bot_reply(message: types.Message):
 @dp.message_handler(Text(contains=['лариска', 'дура'], ignore_case=True))
 async def call_names_reply(message: types.Message):
     await message.reply(dont_call_names())
+
+
+@dp.message_handler(commands=['ютуб', 'youtube', 'video'])
+async def youtube_answer(message: types.Message):
+    await message.answer(get_repo())
