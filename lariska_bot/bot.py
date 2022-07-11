@@ -5,8 +5,8 @@ from aiogram.utils.executor import start_webhook
 from lariska_bot.config import (
     WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_HOST, WEBAPP_PORT
 )
-from lariska_bot.dispatcher import bot, dp
-from lariska_bot.handlers import handler
+from lariska_bot.dispatcher import bot
+from lariska_bot.handlers.handler import *
 
 
 async def on_startup(dispatcher):
