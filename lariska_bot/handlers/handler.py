@@ -3,6 +3,7 @@ from aiogram.dispatcher.filters import Text
 
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.messages import *
+from lariska_bot.handlers.throttling import flood_controlling
 
 
 @dp.message_handler(Text(contains=['привет'], ignore_case=True))
@@ -44,3 +45,9 @@ async def call_names_reply(message: types.Message):
 @dp.message_handler(commands=['ютуб', 'youtube', 'video'])
 async def youtube_answer(message: types.Message):
     await message.answer(get_youtube())
+
+
+@dp.message_handler(content_types=['text'])
+@dp.throttled(flood_controlling, rate=5)
+async def main(message: types.Message):
+    pass
