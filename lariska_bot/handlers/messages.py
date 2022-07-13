@@ -15,6 +15,14 @@ def get_repo_list():
     ]
 
 
+def get_video_list():
+    return [
+        'ютуб',
+        'youtube',
+        'video',
+    ]
+
+
 def get_repo():
     return 'https://github.com/OldCodersClub'
 
