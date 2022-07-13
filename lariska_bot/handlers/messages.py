@@ -43,5 +43,9 @@ def dont_call_names():
     return 'Не обзывайся, дорогуша!'
 
 
+def dont_skirmish():
+    return 'Милорды, не начинайте срач пожалуйста!'
+
+
 def get_youtube():
     return 'https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos'
