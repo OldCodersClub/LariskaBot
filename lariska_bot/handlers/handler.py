@@ -42,12 +42,16 @@ async def call_names_reply(message: types.Message):
     await message.reply(dont_call_names())
 
 
-@dp.message_handler(commands=['ютуб', 'youtube', 'video'])
+@dp.message_handler(commands=['ютуб', 'youtube', 'video'], ignore_case=True))
 async def youtube_answer(message: types.Message):
     await message.answer(get_youtube())
 
+@dp.message_handler(commands=['start', 'help', 'что тут'], ignore_case=True))
+async def send_welcome(message: types.Message):
+    await message.reply(get_welcome())
 
 @dp.message_handler(content_types=['text'])
 @dp.throttled(flood_controlling, rate=5)
 async def main(message: types.Message):
     pass
+

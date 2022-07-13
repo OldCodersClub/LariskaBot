@@ -37,3 +37,12 @@ def dont_call_names():
 
 def get_youtube():
     return 'https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos'
+
+def get_welcome():
+    return 'Привет!\n Я Лариска-бот из Клуба дедов-программистов!"' \
+            '\n Отзываюсь на команды'
+            '\n help, что тут, привет'
+            '\n с чего начать'
+            '\n наш репозиторий, наша репа'
+            '\n ютуб, youtube, video'
+            '\n лариска, дура, бот'
