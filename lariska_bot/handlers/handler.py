@@ -16,11 +16,6 @@ async def where_to_begin(message: types.Message):
     await message.reply(get_start_here())
 
 
-@dp.message_handler(commands=get_repo_list())
-async def repo_answer(message: types.Message):
-    await message.answer(get_repo())
-
-
 @dp.message_handler(Text(contains=['наш репозиторий'], ignore_case=True))
 async def our_repository_reply(message: types.Message):
     await message.reply(get_repo())
@@ -43,6 +38,19 @@ async def call_names_reply(message: types.Message):
 
 
 @dp.message_handler(commands=['ютуб', 'youtube', 'video'], ignore_case=True))
+
+@dp.message_handler(Text(contains=['говно'], ignore_case=True))
+async def skirmish_reply(message: types.Message):
+    await message.reply(dont_skirmish())
+
+
+@dp.message_handler(commands=get_repo_list())
+async def repo_answer(message: types.Message):
+    await message.answer(get_repo())
+
+
+@dp.message_handler(commands=get_video_list())
+
 async def youtube_answer(message: types.Message):
     await message.answer(get_youtube())
 

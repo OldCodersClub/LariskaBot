@@ -15,6 +15,14 @@ def get_repo_list():
     ]
 
 
+def get_video_list():
+    return [
+        'ютуб',
+        'youtube',
+        'video',
+    ]
+
+
 def get_repo():
     return 'https://github.com/OldCodersClub'
 
@@ -33,6 +41,10 @@ def get_forks():
 
 def dont_call_names():
     return 'Не обзывайся, дорогуша!'
+
+
+def dont_skirmish():
+    return 'Милорды, не начинайте срач пожалуйста!'
 
 
 def get_youtube():
