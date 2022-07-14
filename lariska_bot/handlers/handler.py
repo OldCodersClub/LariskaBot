@@ -54,7 +54,7 @@ async def youtube_answer(message: types.Message):
 
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
-    await message.answer(get_welcome(), parse_mode=types.ParseMode.MARKDOWN_V2)
+    await message.answer(get_welcome(), parse_mode=types.ParseMode.MARKDOWN)
 
 
 @dp.message_handler(content_types=['text'])
