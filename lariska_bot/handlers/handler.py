@@ -57,7 +57,12 @@ async def send_welcome(message: types.Message):
     await message.answer(get_welcome(), parse_mode=types.ParseMode.MARKDOWN)
 
 
-@dp.message_handler(content_types=['text'])
+@dp.message_handler(content_types=types.ContentTypes.TEXT)
 @dp.throttled(flood_controlling, rate=5)
 async def main(message: types.Message):
     pass
+
+
+@dp.message_handler(content_types=types.ContentTypes.PHOTO)
+async def photo_reply(msg: types.Message):
+    await msg.reply('Красивенько 😍')
