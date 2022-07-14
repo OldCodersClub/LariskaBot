@@ -6,6 +6,16 @@ from lariska_bot.handlers.messages import *
 from lariska_bot.handlers.throttling import flood_controlling
 
 
+@dp.message_handler(Text(contains=['говно'], ignore_case=True))
+async def skirmish_reply(message: types.Message):
+    await message.reply(dont_skirmish())
+
+
+@dp.message_handler(Text(contains=['лариска', 'дура'], ignore_case=True))
+async def call_names_reply(message: types.Message):
+    await message.reply(dont_call_names())
+
+
 @dp.message_handler(Text(contains=['привет'], ignore_case=True))
 async def hello_reply(message: types.Message):
     await message.reply(get_hello())
@@ -32,31 +42,20 @@ async def lariska_bot_reply(message: types.Message):
     await message.answer(get_forks())
 
 
-@dp.message_handler(Text(contains=['лариска', 'дура'], ignore_case=True))
-async def call_names_reply(message: types.Message):
-    await message.reply(dont_call_names())
-
-
-@dp.message_handler(commands=['ютуб', 'youtube', 'video'], ignore_case=True))
-
-@dp.message_handler(Text(contains=['говно'], ignore_case=True))
-async def skirmish_reply(message: types.Message):
-    await message.reply(dont_skirmish())
-
-
 @dp.message_handler(commands=get_repo_list())
 async def repo_answer(message: types.Message):
     await message.answer(get_repo())
 
 
 @dp.message_handler(commands=get_video_list())
-
 async def youtube_answer(message: types.Message):
     await message.answer(get_youtube())
 
-@dp.message_handler(commands=['start', 'help', 'что тут'], ignore_case=True))
+
+@dp.message_handler(commands=['start', 'help', 'что тут'], ignore_case=True)
 async def send_welcome(message: types.Message):
     await message.reply(get_welcome())
+
 
 @dp.message_handler(content_types=['text'])
 @dp.throttled(flood_controlling, rate=5)
