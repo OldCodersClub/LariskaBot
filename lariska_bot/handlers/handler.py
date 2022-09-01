@@ -59,7 +59,7 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
 @dp.throttled(flood_controlling, rate=5)
-async def main(message: types.Message):
+async def dont_flood(message: types.Message):
     pass
 
 
