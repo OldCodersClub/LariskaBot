@@ -7,4 +7,5 @@ users = {
     'Sudmod': {'day': 0, 'greetings': greetings_Sudmod},
     'AlmazovaNatalia': {'day': 0, 'greetings': greetings_AlmazovaNatalia},
     'user6349': {'day': 0, 'greetings': greetings_user6349},
+    'ellavs': {'day': 0, 'greetings': greetings_ellavs},
 }
