@@ -64,5 +64,5 @@ async def main(message: types.Message):
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
-async def photo_reply(msg: types.Message):
-    await msg.reply('Красивенько 😍')
+async def photo_reply(message: types.Message):
+    await message.reply('Красивенько 😍')
