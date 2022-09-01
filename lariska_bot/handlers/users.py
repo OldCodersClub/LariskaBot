@@ -10,4 +10,5 @@ users = {
     'ellavs': {'day': 0, 'greetings': greetings_ellavs},
     'ADavydoff': {'day': 0, 'greetings': greetings_ADavydoff},
     'nata0877': {'day': 0, 'greetings': greetings_nata0877},
+    'ooPASHAoo': {'day': 0, 'greetings': greetings_ooPASHAoo},
 }
