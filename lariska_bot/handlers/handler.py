@@ -1,9 +1,14 @@
+import random
+from datetime import datetime
+
+import pytz
 from aiogram import types
 from aiogram.dispatcher.filters import Text
 
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.messages import *
 from lariska_bot.handlers.throttling import flood_controlling
+from lariska_bot.handlers.users import users
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
@@ -60,7 +65,15 @@ async def send_welcome(message: types.Message):
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
 @dp.throttled(flood_controlling, rate=5)
 async def dont_flood(message: types.Message):
-    pass
+    username = message.from_user.username
+    user_dict = users.get(username)
+
+    tz = pytz.timezone('Europe/Moscow')
+    present_day = datetime.now(tz).day
+
+    if user_dict and user_dict['day'] != present_day:
+        user_dict['day'] = present_day
+        await message.reply(random.choice(user_dict['greetings']))
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
