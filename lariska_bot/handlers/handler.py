@@ -1,5 +1,5 @@
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pytz
 from aiogram import types
@@ -64,12 +64,14 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
 @dp.throttled(flood_controlling, rate=5)
-async def dont_flood(message: types.Message):
+async def text_reply(message: types.Message):
     username = message.from_user.username
     user_dict = users.get(username)
 
     tz = pytz.timezone('Europe/Moscow')
-    present_day = datetime.now(tz).day
+    present_date = datetime.now(tz)
+    present_date += timedelta(hours=5)
+    present_day = present_date.day
 
     if user_dict and user_dict['day'] != present_day:
         user_dict['day'] = present_day
