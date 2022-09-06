@@ -13,17 +13,17 @@ from lariska_bot.handlers.users import users
 from lariska_bot.utils import get_list_from_file
 
 
-DIRTY_WORDS = list(get_list_from_file('res/dirty_words.txt'))
+DIRTY_WORDS = list(get_list_from_file('lariska_bot/res/dirty_words.txt'))
+DONT_SWEAR_PHOTO = InputFile('lariska_bot/res/dont_swear.jpg')
 
 
-# @dp.message_handler(lambda msg:
-#                     any(word in msg.text.lower() for word in DIRTY_WORDS))
-# async def dont_swear(message: types.Message):
-#     dont_swear_photo = InputFile('res/dont_swear.jpg')
-#     await message.reply_photo(
-#         photo=dont_swear_photo,
-#         caption=get_dont_swear()
-#     )
+@dp.message_handler(lambda msg:
+                    any(word in msg.text.lower() for word in DIRTY_WORDS))
+async def dont_swear(message: types.Message):
+    await message.reply_photo(
+        photo=DONT_SWEAR_PHOTO,
+        caption=get_dont_swear()
+    )
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
