@@ -43,6 +43,10 @@ def get_forks():
     return 'Можете форкать, реквестить и деплоить'
 
 
+def get_attack_reply():
+    return 'Дома у себя командуй.\nКомандир нашёлся...'
+
+
 def dont_call_names():
     return 'Не обзывайся, дорогуша!'
 

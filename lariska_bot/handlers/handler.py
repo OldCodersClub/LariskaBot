@@ -35,6 +35,11 @@ async def call_names_reply(message: types.Message):
     await message.reply(dont_call_names())
 
 
+@dp.message_handler(Text(contains=['лариска', 'фас'], ignore_case=True))
+async def attack_reply(message: types.Message):
+    await message.reply(get_attack_reply())
+
+
 @dp.message_handler(Text(contains=['привет'], ignore_case=True))
 async def hello_reply(message: types.Message):
     await message.reply(get_hello())
