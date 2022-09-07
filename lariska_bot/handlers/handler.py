@@ -16,13 +16,13 @@ from lariska_bot.utils import get_list_from_file, get_word_list
 DIRTY_WORDS = list(get_list_from_file('lariska_bot/res/dirty_words.txt'))
 
 
-@dp.message_handler(lambda msg:
-                    any(word in get_word_list(msg) for word in DIRTY_WORDS))
-async def dont_swear(message: types.Message):
-    await message.reply_photo(
-        photo=InputFile('lariska_bot/res/dont_swear.jpg'),
-        caption=get_dont_swear()
-    )
+# @dp.message_handler(lambda msg:
+#                     any(word in get_word_list(msg) for word in DIRTY_WORDS))
+# async def dont_swear(message: types.Message):
+#     await message.reply_photo(
+#         photo=InputFile('lariska_bot/res/dont_swear.jpg'),
+#         caption=get_dont_swear()
+#     )
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
