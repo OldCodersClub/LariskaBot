@@ -11,5 +11,5 @@ def get_list_from_file(file_name, encoding='utf-8'):
 def get_word_list(sentence):
     return list(filter(
         lambda x: len(x) > 0,
-        re.split(r'\W+', sentence.lower())
+        re.split(r'\W+', str(sentence).lower())
     ))
