@@ -10,14 +10,14 @@ from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.messages import *
 from lariska_bot.handlers.throttling import flood_controlling
 from lariska_bot.handlers.users import users
-from lariska_bot.utils import get_list_from_file
+from lariska_bot.utils import get_list_from_file, get_word_list
 
 
 DIRTY_WORDS = list(get_list_from_file('lariska_bot/res/dirty_words.txt'))
 
 
 @dp.message_handler(lambda msg:
-                    any(word in msg.text.lower() for word in DIRTY_WORDS))
+                    any(word in get_word_list(msg) for word in DIRTY_WORDS))
 async def dont_swear(message: types.Message):
     await message.reply_photo(
         photo=InputFile('lariska_bot/res/dont_swear.jpg'),
