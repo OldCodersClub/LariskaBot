@@ -10,6 +10,10 @@ def get_start_here():
     return 'Начни отсюда:\nhttps://github.com/OldCodersClub/faq'
 
 
+def get_start_video():
+    return 'Или отсюда:\nhttps://www.youtube.com/watch?v=_PfQvdDq_bY'
+
+
 def get_repo_list():
     return [
         'repo',

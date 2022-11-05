@@ -48,6 +48,8 @@ async def hello_reply(message: types.Message):
 @dp.message_handler(Text(contains=['с чего начать'], ignore_case=True))
 async def where_to_begin(message: types.Message):
     await message.reply(get_start_here())
+    await message.answer(get_start_video())
+    await message.answer('Там много полезных ссылок под видео.')
 
 
 @dp.message_handler(Text(contains=['наш репозиторий'], ignore_case=True))
