@@ -3,9 +3,9 @@ import os
 
 TOKEN = os.getenv('BOT_TOKEN')
 
-HEROKU_APP_NAME = os.getenv('HEROKU_APP_NAME')
+RAILWAY_APP_NAME = os.getenv('RAILWAY_APP_NAME')
 
-WEBHOOK_HOST = f'https://{HEROKU_APP_NAME}.herokuapp.com'
+WEBHOOK_HOST = f'https://{RAILWAY_APP_NAME}.railway.app'
 WEBHOOK_PATH = f'/webhook/{TOKEN}'
 WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 

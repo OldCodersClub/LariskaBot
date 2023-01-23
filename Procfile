@@ -1,1 +1,1 @@
-web: python -m lariska_bot
+worker: python -m lariska_bot
