@@ -40,7 +40,7 @@ async def attack_reply(message: types.Message):
 @dp.message_handler(Text(contains=['привет', 'с чего начать'], ignore_case=True))
 async def hello_where_to_reply(message: types.Message):
     await message.reply(get_hello())
-    await message.reply(get_start_here())
+    await message.answer(get_start_here())
     await message.answer(get_start_video())
     await message.answer('Там много полезных ссылок под видео.')
 
