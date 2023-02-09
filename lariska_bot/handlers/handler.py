@@ -4,18 +4,15 @@ from datetime import datetime, timedelta
 import pytz
 from aiogram import types
 from aiogram.dispatcher.filters import Text
-from aiogram.types import InputFile
-
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.messages import *
 from lariska_bot.handlers.throttling import flood_controlling
 from lariska_bot.handlers.users import users
-from lariska_bot.utils import get_list_from_file, get_word_list
 
 
-DIRTY_WORDS = list(get_list_from_file('lariska_bot/res/dirty_words.txt'))
-
-
+# DIRTY_WORDS = list(get_list_from_file('lariska_bot/res/dirty_words.txt'))
+#
+#
 # @dp.message_handler(lambda msg:
 #                     any(word in get_word_list(msg) for word in DIRTY_WORDS))
 # async def dont_swear(message: types.Message):
@@ -38,6 +35,14 @@ async def call_names_reply(message: types.Message):
 @dp.message_handler(Text(contains=['лариска', 'фас'], ignore_case=True))
 async def attack_reply(message: types.Message):
     await message.reply(get_attack_reply())
+
+
+@dp.message_handler(Text(contains=['привет', 'с чего начать'], ignore_case=True))
+async def hello_where_to_reply(message: types.Message):
+    await message.reply(get_hello())
+    await message.reply(get_start_here())
+    await message.answer(get_start_video())
+    await message.answer('Там много полезных ссылок под видео.')
 
 
 @dp.message_handler(Text(contains=['привет'], ignore_case=True))
