@@ -5,7 +5,7 @@ from fuzzywuzzy import fuzz
 from lariska_bot.utils import get_list_from_file
 
 
-ANSWERS = list(get_list_from_file('handlers/answers.txt'))
+ANSWERS = list(get_list_from_file('/app/lariska_bot/handlers/answers.txt'))
 
 
 def get_answer(text):
