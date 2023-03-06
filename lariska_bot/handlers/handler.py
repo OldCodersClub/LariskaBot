@@ -44,6 +44,11 @@ async def lariska_bot_reply(message: types.Message):
     await message.answer(get_forks())
 
 
+@dp.message_handler(Text(contains=['https://t.me/oldcoders_bar'], ignore_case=True))
+async def bar_reply(message: types.Message):
+    await message.reply(get_bar_reply())
+
+
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
     await message.answer(get_welcome(), parse_mode=types.ParseMode.MARKDOWN)
