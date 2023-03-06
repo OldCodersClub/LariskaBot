@@ -74,3 +74,7 @@ u: Лариска aiogram
 Хе-хе...\nhttps://mastergroosha.github.io/telegram-tutorial-2/
 u: Лариска курсы
 Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g
+u: Лариска войти
+Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g
+u: Лариска вайти
+Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g
