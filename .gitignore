@@ -163,4 +163,5 @@ fabric.properties
 output/
 tmpl/
 tmpl.*
+*.env
 brief.*
