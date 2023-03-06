@@ -64,3 +64,13 @@ u: Кайф
 Не то слово!
 u: Сколько учиться
 3000 часов минимум
+u: Сколько время
+У меня пол-шестого
+u: Наглая такая
+Какая есть...
+u: Наглая
+Какая есть...
+u: Лариска aiogram
+Хе-хе...\nhttps://mastergroosha.github.io/telegram-tutorial-2/
+u: Лариска курсы
+Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g
