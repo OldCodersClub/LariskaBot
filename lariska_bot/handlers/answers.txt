@@ -3,11 +3,11 @@ u: Лариска дура
 u: Лариска фас
 Дома у себя командуй.\nКомандир нашёлся...
 u: Лариска репа
-https://github.com/OldCodersClub
+Хе-хе...\nhttps://github.com/OldCodersClub
 u: Лариска видео
-https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos
+Хе-хе...\nhttps://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos
 u: Лариска ютуб
-https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos
+Хе-хе...\nhttps://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos
 u: Лариска докер
 Хе-хе...\nhttps://gist.github.com/Aleksey-Voko/50f3631386514e340fca7c416f21ab9f
 u: Лариска гит
