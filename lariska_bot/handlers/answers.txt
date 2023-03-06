@@ -72,9 +72,10 @@ u: Наглая
 Какая есть...
 u: Лариска aiogram
 Хе-хе...\nhttps://mastergroosha.github.io/telegram-tutorial-2/
+
 u: Лариска курсы
-Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g
+Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g\nhttps://habr.com/ru/post/704702/
 u: Лариска войти
-Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g
+Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g\nhttps://habr.com/ru/post/704702/
 u: Лариска вайти
-Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g
+Хе-хе...\nhttps://www.youtube.com/watch?v=lJMCB2ZH90g\nhttps://habr.com/ru/post/704702/

@@ -1,3 +1,5 @@
+import logging
+
 from aiogram.utils.executor import start_webhook
 
 from lariska_bot.config import (
@@ -18,7 +20,7 @@ async def on_shutdown(dispatcher):
 
 
 def main():
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.DEBUG)
     logging.info('Restart and run server.')
     logging.info(f'Local datetime: {datetime.now()}')
     logging.info(
