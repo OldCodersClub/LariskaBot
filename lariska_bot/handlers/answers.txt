@@ -1,0 +1,48 @@
+u: Лариска дура
+Не обзывайся, дорогуша!
+u: Лариска фас
+Дома у себя командуй.\nКомандир нашёлся...
+u: Лариска репа
+https://github.com/OldCodersClub
+u: Лариска видео
+https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos
+u: Лариска ютуб
+https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g/videos
+u: Лариска докер
+Хе-хе...\nhttps://gist.github.com/Aleksey-Voko/50f3631386514e340fca7c416f21ab9f
+u: Лариска гит
+Хе-хе...\nhttps://github.com/OldCodersClub/faq/blob/master/faq/git_docs.md
+u: Лариска коммит
+Хе-хе...\nhttps://gist.github.com/Aleksey-Voko/a0a464a8a0cf3e9058f6e477c04f5414
+u: Лариска веб
+Хе-хе...\nhttps://github.com/OldCodersClub/faq/blob/master/faq/ELEMENTARY.md
+u: Лариска фронт
+Хе-хе...\nhttps://github.com/OldCodersClub/faq/blob/master/faq/ELEMENTARY.md
+u: Лариска питон
+Хе-хе...\nhttps://github.com/OldCodersClub/faq/blob/master/faq/ELEMENTARY_python.md
+u: Лариска ++
+Хе-хе...\nhttps://github.com/salmer/CppDeveloperRoadmap
+u: Лариска матрица
+Хе-хе...\nhttps://sijinjoseph.com/programmer-competency-matrix/
+u: Лариска мапа
+Хе-хе...\nhttps://roadmap.sh/
+u: Лариска карта
+Хе-хе...\nhttps://roadmap.sh/
+u: Лариска сукель
+Хе-хе...\nhttps://oracleplsql.ru/
+u: Лариска скуль
+Хе-хе...\nhttps://oracleplsql.ru/
+u: Лариска девопс
+Хе-хе...\nhttps://the-devops.ru/
+u: Лариска алгоритмы
+Хе-хе...\nhttps://i.pinimg.com/originals/98/b9/d1/98b9d1d8c88e48591cc2b7a5e354a537.png
+u: Лариска пандас
+Хе-хе...\nhttps://media.tproger.ru/uploads/2020/01/pandas_cheatsheet_1.png\n\nhttps://media.tproger.ru/uploads/2020/01/pandas_cheatsheet_2-1.jpg
+u: Математика нужна
+Нет! Не нужна.
+u: Математика программистам нужна
+Нет! Не нужна.
+u: Лариска, математика нужна
+Нет! Не нужна.
+u: Лариска, математика программистам нужна
+Нет! Не нужна.
