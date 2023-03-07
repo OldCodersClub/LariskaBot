@@ -9,7 +9,6 @@ from ruamel import yaml
 
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.answers import get_answer
-from lariska_bot.handlers.users import users
 
 
 MESSAGES = {
@@ -22,6 +21,12 @@ REPLICAS = {
     x: [z.replace(r'\n', '\n') for z in y] for (x, y)
     in yaml.load(open('/app/lariska_bot/handlers/replicas.yaml'),
                  Loader=yaml.Loader).items()
+}
+
+
+USERS = {
+    x: 0 for x
+    in yaml.load(open('/app/lariska_bot/handlers/users.yaml'), Loader=yaml.Loader)
 }
 
 
@@ -76,16 +81,16 @@ async def send_welcome(message: types.Message):
 @dp.throttled(flood_controlling, rate=5)
 async def text_reply(message: types.Message):
     username = message.from_user.username
-    user_dict = users.get(username)
+    user_day = USERS.get(username)
 
     tz = pytz.timezone('Europe/Moscow')
     present_date = datetime.now(tz)
     present_date += timedelta(hours=5)
     present_day = present_date.day
 
-    if user_dict and user_dict['day'] != present_day:
-        user_dict['day'] = present_day
-        await message.reply(choice(user_dict['greetings']))
+    if username in USERS and user_day != present_day:
+        USERS[username] = present_day
+        await message.reply(choice(REPLICAS[username]))
 
     else:
         answer, rating, = get_answer(message.text)
