@@ -16,7 +16,8 @@ async def on_startup(dispatcher):
 
 # noinspection PyUnusedLocal
 async def on_shutdown(dispatcher):
-    await bot.delete_webhook()
+    pass
+    # await bot.delete_webhook()
 
 
 def main():

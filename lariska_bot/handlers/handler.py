@@ -5,53 +5,71 @@ from random import choice
 import pytz
 from aiogram import types
 from aiogram.dispatcher.filters import Text
+from ruamel import yaml
 
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.answers import get_answer
-from lariska_bot.handlers.controllers import flood_controlling
-from lariska_bot.handlers.messages import *
 from lariska_bot.handlers.users import users
+
+
+MESSAGES = {
+    x: y.replace(r'\n', '\n') for (x, y)
+    in yaml.load(open('/app/lariska_bot/handlers/messages.yaml'),
+                 Loader=yaml.Loader).items()
+}
+
+REPLICAS = {
+    x: [z.replace(r'\n', '\n') for z in y] for (x, y)
+    in yaml.load(open('/app/lariska_bot/handlers/replicas.yaml'),
+                 Loader=yaml.Loader).items()
+}
+
+
+# noinspection PyUnusedLocal
+async def flood_controlling(*args, **kwargs):
+    await args[0].reply(MESSAGES['flood_reply'])
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
 async def skirmish_reply(message: types.Message):
-    await message.reply(dont_skirmish())
+    await message.reply(MESSAGES['skirmish'])
 
 
 @dp.message_handler(Text(contains=['привет', 'с чего начать'], ignore_case=True))
 async def hello_where_to_reply(message: types.Message):
-    await message.reply(get_hello())
-    await message.answer(get_start_here())
-    await message.answer(get_start_video())
-    await message.answer(get_message_links())
+    await message.reply(MESSAGES['hello'])
+    await message.answer(MESSAGES['start_here'])
+    await message.answer(MESSAGES['start_video'])
+    await message.answer(MESSAGES['message_links'])
 
 
 @dp.message_handler(Text(contains=['привет'], ignore_case=True))
 async def hello_reply(message: types.Message):
-    await message.reply(get_hello())
+    await message.reply(MESSAGES['hello'])
 
 
 @dp.message_handler(Text(contains=['с чего начать'], ignore_case=True))
 async def where_to_begin(message: types.Message):
-    await message.reply(get_start_here())
-    await message.answer(get_start_video())
-    await message.answer(get_message_links())
+    await message.reply(MESSAGES['start_here'])
+    await message.answer(MESSAGES['start_video'])
+    await message.answer(MESSAGES['message_links'])
 
 
 @dp.message_handler(Text(contains=['лариска', 'бот'], ignore_case=True))
 async def lariska_bot_reply(message: types.Message):
-    await message.reply(get_lariska_bot())
-    await message.answer(get_forks())
+    await message.reply(MESSAGES['lariska_bot'])
+    await message.answer(MESSAGES['forks'])
 
 
 @dp.message_handler(Text(contains=['https://t.me/oldcoders_bar'], ignore_case=True))
 async def bar_reply(message: types.Message):
-    await message.reply(get_bar_reply())
+    await message.reply(choice(REPLICAS['bar']))
 
 
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
-    await message.answer(get_welcome(), parse_mode=types.ParseMode.MARKDOWN)
+    await message.answer(
+        MESSAGES['welcome'], parse_mode=types.ParseMode.MARKDOWN)
 
 
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
@@ -78,4 +96,4 @@ async def text_reply(message: types.Message):
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
 async def photo_reply(message: types.Message):
-    await message.reply(get_photo_reply())
+    await message.reply(MESSAGES['photo_reply'])
