@@ -94,7 +94,7 @@ async def text_reply(message: types.Message):
                 message.text.startswith('Лариска')
                 or (
                     message.reply_to_message
-                    and message.reply_to_message.from_user.username == 'LariskaTestBot'
+                    and message.reply_to_message.from_user.username == 'LariskaCerberBot'
                 )
         ):
             await message.reply(choice(REPLICAS['waiting_lariska']))
