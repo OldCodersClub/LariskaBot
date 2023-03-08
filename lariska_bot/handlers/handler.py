@@ -9,18 +9,14 @@ from aiogram.dispatcher.filters import Text
 
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (get_answer, MESSAGES, REPLICAS,
-                                              USERS, get_ai_answer)
+                                              USERS, get_ai_answer,
+                                              flood_controlling)
 
 WORKS_CHATS = [
     os.getenv('VCHAT_ID'),
     os.getenv('DCHAT_ID'),
     os.getenv('SCHAT_ID'),
 ]
-
-
-# noinspection PyUnusedLocal
-async def flood_controlling(*args, **kwargs):
-    await args[0].reply(MESSAGES['flood_reply'])
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
