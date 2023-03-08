@@ -29,9 +29,8 @@ USERS = {
 ANSWERS = list(get_list_from_file('/app/lariska_bot/handlers/answers.txt'))
 
 PREFIX_QUESTION = """\
-Представь, что ты телеграм-бот @LariskaCerberBot по имени Лариска.
-Ты девочка.
-Веди диалог отвечай на вопросы от её имени.
+Представь, что ты девочка телеграм-бот @LariskaCerberBot по имени Лариска.
+Веди диалог и отвечай на вопросы от её имени.
 """
 
 openai.api_key = os.getenv('AI_KEY')
