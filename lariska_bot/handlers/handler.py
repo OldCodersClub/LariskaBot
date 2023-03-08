@@ -1,33 +1,21 @@
 import logging
+import os
 from datetime import datetime, timedelta
 from random import choice
 
 import pytz
 from aiogram import types
 from aiogram.dispatcher.filters import Text
-from ruamel import yaml
 
 from lariska_bot.dispatcher import dp
-from lariska_bot.handlers.answers import get_answer
+from lariska_bot.handlers.controllers import (get_answer, MESSAGES, REPLICAS,
+                                              USERS, get_ai_answer)
 
-
-MESSAGES = {
-    x: y.replace(r'\n', '\n') for (x, y)
-    in yaml.load(open('/app/lariska_bot/handlers/messages.yaml'),
-                 Loader=yaml.Loader).items()
-}
-
-REPLICAS = {
-    x: [z.replace(r'\n', '\n') for z in y] for (x, y)
-    in yaml.load(open('/app/lariska_bot/handlers/replicas.yaml'),
-                 Loader=yaml.Loader).items()
-}
-
-
-USERS = {
-    x: 0 for x
-    in yaml.load(open('/app/lariska_bot/handlers/users.yaml'), Loader=yaml.Loader)
-}
+WORKS_CHATS = [
+    os.getenv('VCHAT_ID'),
+    os.getenv('DCHAT_ID'),
+    os.getenv('SCHAT_ID'),
+]
 
 
 # noinspection PyUnusedLocal
@@ -91,12 +79,27 @@ async def text_reply(message: types.Message):
     if username in USERS and user_day != present_day:
         USERS[username] = present_day
         await message.reply(choice(REPLICAS[username]))
+        return
 
-    else:
-        answer, rating, = get_answer(message.text)
-        logging.info(f'{rating}:{answer}')  # WTF: debug logging
-        if rating >= 90:
-            await message.reply(f'{answer}')
+    answer, rating, = get_answer(message.text)
+    logging.info(f'{rating}:{answer}')  # WTF: debug logging
+
+    if rating >= 90:
+        await message.reply(f'{answer}')
+        return
+
+    # AI
+    if str(message.chat.id) in WORKS_CHATS:
+        if (
+                message.text.startswith('Лариска')
+                or (
+                    message.reply_to_message
+                    and message.reply_to_message.from_user.username == 'LariskaTestBot'
+                )
+        ):
+            await message.reply(choice(REPLICAS['waiting_lariska']))
+            lariska_answer = get_ai_answer(message.text)
+            await message.answer(lariska_answer)
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
