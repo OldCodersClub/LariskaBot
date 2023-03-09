@@ -51,6 +51,7 @@ BOT_FIRST_NAME = 'Лариска'
 BOT_USER_NAME = 'LariskaCerberBot'
 
 RATING_LIMIT = 80
+FLOOD_RATE = 5
 
 PREFIX_QUESTION = """\
 Представь, что ты девочка телеграм-бот https://t.me/LariskaCerberBot по имени Лариска.

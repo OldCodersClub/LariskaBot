@@ -7,7 +7,8 @@ from aiogram import types
 from aiogram.dispatcher.filters import Text
 
 from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
-                                BOT_FIRST_NAME, BOT_USER_NAME, RATING_LIMIT)
+                                BOT_FIRST_NAME, BOT_USER_NAME, RATING_LIMIT,
+                                FLOOD_RATE)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
                                               get_ai_answer)
@@ -58,7 +59,7 @@ async def send_welcome(message: types.Message):
 
 
 @dp.message_handler(content_types=types.ContentTypes.TEXT)
-@dp.throttled(flood_controlling, rate=5)
+@dp.throttled(flood_controlling, rate=FLOOD_RATE)
 async def text_reply(message: types.Message):
     username = message.from_user.username
     user_day = USERS.get(username)
