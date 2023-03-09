@@ -92,8 +92,7 @@ async def text_reply(message: types.Message):
                 )
         ):
             await message.reply(choice(REPLICAS['waiting_lariska']))
-            lariska_answer = get_ai_answer(message.text)
-            await message.answer(lariska_answer)
+            await message.answer(get_ai_answer(message.text))
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
