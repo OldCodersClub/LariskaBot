@@ -7,10 +7,10 @@ from fuzzywuzzy import fuzz
 from lariska_bot.config import (MESSAGES, PREFIX_QUESTION, LING_MODEL,
                                 TEMPERATURE, MAX_TOKENS, TOP_P,
                                 FREQUENCY_PENALTY, PRESENCE_PENALTY, ANSWERS,
-                                AI_API_KEY)
+                                AI_KEY)
 
 
-openai.api_key = os.getenv(AI_API_KEY)
+openai.api_key = os.getenv(AI_KEY)
 
 
 # noinspection PyUnusedLocal

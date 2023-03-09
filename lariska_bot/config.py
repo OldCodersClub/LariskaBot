@@ -54,7 +54,7 @@ PREFIX_QUESTION = """\
 """
 
 # AI
-AI_API_KEY = os.getenv('AI_KEY')
+AI_KEY = os.getenv('AI_KEY')
 LING_MODEL = 'text-davinci-003'
 TEMPERATURE = 0.5
 MAX_TOKENS = 1000
