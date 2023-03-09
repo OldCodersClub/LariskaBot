@@ -82,12 +82,12 @@ async def text_reply(message: types.Message):
 
     # AI
     if str(message.chat.id) in WORKS_CHATS:
-        bot_user_name = message.reply_to_message.from_user.username
         if (
                 message.text.startswith(BOT_FIRST_NAME)
                 or (
                     message.reply_to_message
-                    and bot_user_name == BOT_USER_NAME
+                    and (message.reply_to_message.from_user.username
+                         == BOT_USER_NAME)
                 )
         ):
             await message.reply(choice(REPLICAS['waiting_lariska']))
