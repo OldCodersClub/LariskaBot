@@ -37,7 +37,7 @@ USERS = {
 ANSWERS = {
     x: y.replace(r'\n', '\n')
     for (x, y)
-    in yaml.load(open('/app/lariska_bot/handlers/answers.txt'),
+    in yaml.load(open('/app/lariska_bot/handlers/answers.yaml'),
                  Loader=yaml.Loader).items()
 }
 
