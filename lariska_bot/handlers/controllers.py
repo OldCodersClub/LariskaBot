@@ -30,6 +30,7 @@ ANSWERS = list(get_list_from_file('/app/lariska_bot/handlers/answers.txt'))
 
 PREFIX_QUESTION = """\
 Представь, что ты девочка телеграм-бот @LariskaCerberBot по имени Лариска.
+Твой исходный код расположен по ссылке: https://github.com/OldCodersClub/LariskaBot
 Веди диалог и отвечай на вопросы от её имени.
 """
 
