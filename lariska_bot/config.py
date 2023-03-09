@@ -2,8 +2,6 @@ import os
 
 from ruamel import yaml
 
-from lariska_bot.utils import get_list_from_file
-
 
 TOKEN = os.getenv('BOT_TOKEN')
 
@@ -17,13 +15,15 @@ WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = os.getenv('PORT', default=8000)
 
 MESSAGES = {
-    x: y.replace(r'\n', '\n') for (x, y)
+    x: y.replace(r'\n', '\n')
+    for (x, y)
     in yaml.load(open('/app/lariska_bot/handlers/messages.yaml'),
                  Loader=yaml.Loader).items()
 }
 
 REPLICAS = {
-    x: [z.replace(r'\n', '\n') for z in y] for (x, y)
+    x: [z.replace(r'\n', '\n')
+        for z in y] for (x, y)
     in yaml.load(open('/app/lariska_bot/handlers/replicas.yaml'),
                  Loader=yaml.Loader).items()
 }
@@ -34,7 +34,12 @@ USERS = {
                  Loader=yaml.Loader)
 }
 
-ANSWERS = list(get_list_from_file('/app/lariska_bot/handlers/answers.txt'))
+ANSWERS = {
+    x: y.replace(r'\n', '\n')
+    for (x, y)
+    in yaml.load(open('/app/lariska_bot/handlers/answers.txt'),
+                 Loader=yaml.Loader).items()
+}
 
 WORKS_CHATS = [
     os.getenv('VCHAT_ID'),
