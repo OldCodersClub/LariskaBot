@@ -1,4 +1,5 @@
 import logging
+import os
 from datetime import datetime, timedelta
 from random import choice
 
@@ -6,11 +7,16 @@ import pytz
 from aiogram import types
 from aiogram.dispatcher.filters import Text
 
-from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
-                                BOT_FIRST_NAME, BOT_USER_NAME)
 from lariska_bot.dispatcher import dp
-from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
-                                              get_ai_answer)
+from lariska_bot.handlers.controllers import (get_answer, MESSAGES, REPLICAS,
+                                              USERS, get_ai_answer,
+                                              flood_controlling)
+
+WORKS_CHATS = [
+    os.getenv('VCHAT_ID'),
+    os.getenv('DCHAT_ID'),
+    os.getenv('SCHAT_ID'),
+]
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
@@ -18,8 +24,7 @@ async def skirmish_reply(message: types.Message):
     await message.reply(MESSAGES['skirmish'])
 
 
-@dp.message_handler(Text(contains=['привет', 'с чего начать'],
-                         ignore_case=True))
+@dp.message_handler(Text(contains=['привет', 'с чего начать'], ignore_case=True))
 async def hello_where_to_reply(message: types.Message):
     await message.reply(MESSAGES['hello'])
     await message.answer(MESSAGES['start_here'])
@@ -45,8 +50,7 @@ async def lariska_bot_reply(message: types.Message):
     await message.answer(MESSAGES['forks'])
 
 
-@dp.message_handler(Text(contains=['https://t.me/oldcoders_bar'],
-                         ignore_case=True))
+@dp.message_handler(Text(contains=['https://t.me/oldcoders_bar'], ignore_case=True))
 async def bar_reply(message: types.Message):
     await message.reply(choice(REPLICAS['bar']))
 
@@ -82,12 +86,11 @@ async def text_reply(message: types.Message):
 
     # AI
     if str(message.chat.id) in WORKS_CHATS:
-        bot_user_name = message.reply_to_message.from_user.username
         if (
-                message.text.startswith(BOT_FIRST_NAME)
+                message.text.startswith('Лариска')
                 or (
                     message.reply_to_message
-                    and bot_user_name == BOT_USER_NAME
+                    and message.reply_to_message.from_user.username == 'LariskaCerberBot'
                 )
         ):
             await message.reply(choice(REPLICAS['waiting_lariska']))

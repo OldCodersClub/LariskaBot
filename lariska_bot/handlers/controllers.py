@@ -3,14 +3,41 @@ import os
 
 import openai
 from fuzzywuzzy import fuzz
+from ruamel import yaml
 
-from lariska_bot.config import (MESSAGES, PREFIX_QUESTION, LING_MODEL,
-                                TEMPERATURE, MAX_TOKENS, TOP_P,
-                                FREQUENCY_PENALTY, PRESENCE_PENALTY, ANSWERS,
-                                AI_KEY)
+from lariska_bot.utils import get_list_from_file
 
 
-openai.api_key = os.getenv(AI_KEY)
+MESSAGES = {
+    x: y.replace(r'\n', '\n') for (x, y)
+    in yaml.load(open('/app/lariska_bot/handlers/messages.yaml'),
+                 Loader=yaml.Loader).items()
+}
+
+REPLICAS = {
+    x: [z.replace(r'\n', '\n') for z in y] for (x, y)
+    in yaml.load(open('/app/lariska_bot/handlers/replicas.yaml'),
+                 Loader=yaml.Loader).items()
+}
+
+USERS = {
+    x: 0 for x
+    in yaml.load(open('/app/lariska_bot/handlers/users.yaml'),
+                 Loader=yaml.Loader)
+}
+
+ANSWERS = list(get_list_from_file('/app/lariska_bot/handlers/answers.txt'))
+
+PREFIX_QUESTION = """\
+Представь, что ты девочка телеграм-бот https://t.me/LariskaCerberBot по имени Лариска.
+Веди диалог и отвечай на вопросы от её имени.
+Твой исходный код расположен по ссылке: https://github.com/OldCodersClub/LariskaBot
+Страница автора твоего исходного кода расположена по ссылке: https://github.com/Aleksey-Voko
+Соавторы твоего исходного кода перечислены на этой странице: https://github.com/OldCodersClub/LariskaBot/graphs/contributors
+Ты была создана для телеграмм-чата https://t.me/oldcodersclub
+"""
+
+openai.api_key = os.getenv('AI_KEY')
 
 
 # noinspection PyUnusedLocal
@@ -22,13 +49,13 @@ def get_ai_answer(question):
     question_lariska = f'{PREFIX_QUESTION}\n{question}'
 
     response = openai.Completion.create(
-        model=LING_MODEL,
+        model="text-davinci-003",
         prompt=question_lariska,
-        temperature=TEMPERATURE,
-        max_tokens=MAX_TOKENS,
-        top_p=TOP_P,
-        frequency_penalty=FREQUENCY_PENALTY,
-        presence_penalty=PRESENCE_PENALTY,
+        temperature=0.5,
+        max_tokens=1000,
+        top_p=1.0,
+        frequency_penalty=0.5,
+        presence_penalty=0.0,
     )
 
     return response['choices'][0]['text']
