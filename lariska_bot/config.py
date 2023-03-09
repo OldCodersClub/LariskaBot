@@ -17,27 +17,27 @@ WEBAPP_PORT = os.getenv('PORT', default=8000)
 MESSAGES = {
     x: y.replace(r'\n', '\n')
     for (x, y)
-    in yaml.load(open('/app/lariska_bot/handlers/messages.yaml'),
+    in yaml.load(open('/app/lariska_bot/res/messages.yaml'),
                  Loader=yaml.Loader).items()
 }
 
 REPLICAS = {
     x: [z.replace(r'\n', '\n')
         for z in y] for (x, y)
-    in yaml.load(open('/app/lariska_bot/handlers/replicas.yaml'),
+    in yaml.load(open('/app/lariska_bot/res/replicas.yaml'),
                  Loader=yaml.Loader).items()
 }
 
 USERS = {
     x: 0 for x
-    in yaml.load(open('/app/lariska_bot/handlers/users.yaml'),
+    in yaml.load(open('/app/lariska_bot/res/users.yaml'),
                  Loader=yaml.Loader)
 }
 
 ANSWERS = {
     x: y.replace(r'\n', '\n')
     for (x, y)
-    in yaml.load(open('/app/lariska_bot/handlers/answers.yaml'),
+    in yaml.load(open('/app/lariska_bot/res/answers.yaml'),
                  Loader=yaml.Loader).items()
 }
 
