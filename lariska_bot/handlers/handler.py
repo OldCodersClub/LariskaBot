@@ -7,7 +7,7 @@ from aiogram import types
 from aiogram.dispatcher.filters import Text
 
 from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
-                                BOT_FIRST_NAME, BOT_USER_NAME)
+                                BOT_FIRST_NAME, BOT_USER_NAME, RATING_LIMIT)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
                                               get_ai_answer)
@@ -76,7 +76,7 @@ async def text_reply(message: types.Message):
     answer, rating, = get_answer(message.text)
     logging.info(f'{rating}:{answer}')  # WTF: debug logging
 
-    if rating >= 80:
+    if rating >= RATING_LIMIT:
         await message.reply(f'{answer}')
         return
 

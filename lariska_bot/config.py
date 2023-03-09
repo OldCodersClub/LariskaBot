@@ -45,6 +45,8 @@ WORKS_CHATS = [
 BOT_FIRST_NAME = 'Лариска'
 BOT_USER_NAME = 'LariskaCerberBot'
 
+RATING_LIMIT = 80
+
 PREFIX_QUESTION = """\
 Представь, что ты девочка телеграм-бот https://t.me/LariskaCerberBot по имени Лариска.
 Веди диалог и отвечай на вопросы от её имени.
