@@ -80,7 +80,7 @@ async def text_reply(message: types.Message):
     answer, rating, = get_answer(message.text)
     logging.info(f'{rating}:{answer}')  # WTF: debug logging
 
-    if rating >= 90:
+    if rating >= 80:
         await message.reply(f'{answer}')
         return
 
