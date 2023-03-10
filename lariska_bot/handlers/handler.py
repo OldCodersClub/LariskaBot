@@ -8,7 +8,7 @@ from aiogram.dispatcher.filters import Text
 
 from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
                                 BOT_FIRST_NAME, BOT_USER_NAME, RATING_LIMIT,
-                                FLOOD_RATE)
+                                FLOOD_RATE, WEEKEND_MESSAGE)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
                                               get_ai_answer)
@@ -91,8 +91,10 @@ async def text_reply(message: types.Message):
                 #          == BOT_USER_NAME)
                 # )
         ):
-            await message.reply(choice(REPLICAS['waiting_lariska']))
-            await message.answer(get_ai_answer(message.text))
+            # await message.reply(choice(REPLICAS['waiting_lariska']))
+            # await message.answer(get_ai_answer(message.text))
+
+            await message.reply(WEEKEND_MESSAGE)
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)

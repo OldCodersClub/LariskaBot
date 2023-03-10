@@ -62,6 +62,10 @@ PREFIX_QUESTION = """\
 Ты была создана для телеграмм-чата https://t.me/oldcodersclub
 """
 
+WEEKEND_MESSAGE = """\
+Отстаньте от меня. У меня выходной.
+"""
+
 # AI
 AI_KEY = os.getenv('AI_KEY')
 MODEL = 'text-davinci-003'
