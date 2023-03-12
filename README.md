@@ -1,5 +1,7 @@
 # LariskaBot - telegram-bot (Python, [aiogram](https://aiogram.dev/))
 
+[![wakatime](https://wakatime.com/badge/user/8cc8aa38-4041-409b-9d27-a85e5b897ad4/project/9429f9d1-0e7c-4945-a1fd-9e085f3d6067.svg)](https://wakatime.com/@Voko/projects/xqfpkutwnj?start=2023-03-06&end=2023-03-12)
+
 Телеграмм-бот для чата [@OldCodersClub](https://t.me/oldcodersclub)
 
 Бот использует приоритеты при поиске и генерации ответов для пользователей:
