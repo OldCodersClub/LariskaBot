@@ -1,6 +1,8 @@
+import json
 import logging
 
 import openai
+import requests
 from fuzzywuzzy import fuzz
 
 from lariska_bot.config import (AI_KEY, MESSAGES, PREFIX_QUESTION, ANSWERS,
@@ -46,3 +48,10 @@ def get_answer(text):
     except Exception as e:
         logging.exception(e)
         return None, 0
+
+
+def is_work_day(year, month, day):
+    url = f'https://raw.githubusercontent.com/d10xa/holidays-calendar/master/json/consultant{year}.json'
+    response = requests.get(url)
+    days = json.loads(response.text)
+    return f'{year:04}-{month:02}-{day:02}' not in days['holidays']

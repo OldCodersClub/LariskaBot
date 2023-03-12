@@ -11,7 +11,7 @@ from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
                                 FLOOD_RATE, WEEKEND_MESSAGE)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
-                                              get_ai_answer)
+                                              get_ai_answer, is_work_day)
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
@@ -66,16 +66,16 @@ async def text_reply(message: types.Message):
 
     tz = pytz.timezone('Europe/Moscow')
     present_date = datetime.now(tz)
-    present_date += timedelta(hours=5)
-    present_day = present_date.day
 
-    if username in USERS and user_day != present_day:
-        USERS[username] = present_day
+    current_date = present_date + timedelta(hours=5)
+    current_day = current_date.day
+
+    if username in USERS and user_day != current_day:
+        USERS[username] = current_day
         await message.reply(choice(REPLICAS[username]))
         return
 
     answer, rating, = get_answer(message.text)
-    logging.info(f'{rating}:{answer}')  # WTF: debug logging
 
     if rating >= RATING_LIMIT:
         await message.reply(f'{answer}')
@@ -91,10 +91,15 @@ async def text_reply(message: types.Message):
                 #          == BOT_USER_NAME)
                 # )
         ):
-            # await message.reply(choice(REPLICAS['waiting_lariska']))
-            # await message.answer(get_ai_answer(message.text))
+            present_year = present_date.year
+            present_month = present_date.month
+            present_day = present_date.day
 
-            await message.reply(WEEKEND_MESSAGE)
+            if is_work_day(present_year, present_month, present_day):
+                await message.reply(choice(REPLICAS['waiting_lariska']))
+                await message.answer(get_ai_answer(message.text))
+            else:
+                await message.reply(WEEKEND_MESSAGE)
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
