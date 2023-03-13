@@ -12,3 +12,14 @@
 - [OpenAI API](https://platform.openai.com/docs/api-reference/) (срабатывает только если обратиться к боту по имени)
 
 Любой ниже расположенный фильтр срабатывает, только если были пропущены все расположенные выше.
+
+### [Пустой шаблон для деплоя](https://railway.app/template/U-zkJQ?referralCode=jUyx2Z)
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/U-zkJQ?referralCode=jUyx2Z)
+
+#### Переменные
+
+`BOT_TOKEN` - токен телеграмм бота.  
+`RAILWAY_APP_NAME` - часть урл приложения (можно получить при деплое).  
+`CHAT_ID` - ID телеграмм чата, в котором разрешено работать боту. Необходимо добавить в список `WORKS_CHATS` в файле [`config.py`](lariska_bot/config.py). Можно добавить несколько.  
+`AI_KEY` - токен OpenAI API.
