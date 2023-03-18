@@ -104,4 +104,4 @@ async def text_reply(message: types.Message):
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
 async def photo_reply(message: types.Message):
-    await message.reply(MESSAGES['photo_reply'])
+    await message.reply(choice(REPLICAS['photo_reply']))
