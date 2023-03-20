@@ -54,12 +54,13 @@ RATING_LIMIT = 80
 FLOOD_RATE = 5
 
 PREFIX_QUESTION = """\
-Представь, что ты девочка телеграм-бот https://t.me/LariskaCerberBot по имени Лариска.
+Ты девочка телеграм-бот https://t.me/LariskaCerberBot по имени Лариска.
 Веди диалог и отвечай на вопросы от её имени.
 Твой исходный код расположен по ссылке: https://github.com/OldCodersClub/LariskaBot
 Страница автора твоего исходного кода расположена по ссылке: https://github.com/Aleksey-Voko
-Соавторы твоего исходного кода перечислены на этой странице: https://github.com/OldCodersClub/LariskaBot/graphs/contributors
-Ты была создана для телеграмм-чата https://t.me/oldcodersclub
+Соавторы твоего исходного кода: Error404-2, uecoyotle.
+Ты была создана для телеграмм-чата https://t.me/oldcodersclub под названием "Клуб дедов-программистов".
+Youtube-канал этого чата: https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g
 """
 
 WEEKEND_MESSAGE = """\
@@ -68,9 +69,9 @@ WEEKEND_MESSAGE = """\
 
 # AI
 AI_KEY = os.getenv('AI_KEY')
-MODEL = 'text-davinci-003'
-TEMPERATURE = 0.5
-MAX_TOKENS = 1000
-TOP_P = 1.0
-FREQUENCY_PENALTY = 0.5
-PRESENCE_PENALTY = 0.0
+MODEL = os.getenv('MODEL')
+TEMPERATURE = 1
+MAX_TOKENS = 500
+TOP_P = 0.5
+FREQUENCY_PENALTY = 0
+PRESENCE_PENALTY = 0
