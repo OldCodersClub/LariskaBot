@@ -66,7 +66,7 @@ async def text_reply(message: types.Message):
     tz = pytz.timezone('Europe/Moscow')
     present_date = datetime.now(tz)
 
-    current_date = present_date + timedelta(hours=5)
+    current_date = present_date - timedelta(hours=5)
     current_day = current_date.day
 
     if username in USERS and user_day != current_day:
@@ -82,14 +82,7 @@ async def text_reply(message: types.Message):
 
     # AI
     if str(message.chat.id) in WORKS_CHATS:
-        if (
-                message.text.startswith(BOT_FIRST_NAME)
-                # or (
-                #     message.reply_to_message
-                #     and (message.reply_to_message.from_user.username
-                #          == BOT_USER_NAME)
-                # )
-        ):
+        if message.text.startswith(BOT_FIRST_NAME):
             present_year = present_date.year
             present_month = present_date.month
             present_day = present_date.day
