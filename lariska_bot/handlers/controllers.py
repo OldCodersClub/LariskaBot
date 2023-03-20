@@ -6,9 +6,7 @@ import requests
 from fuzzywuzzy import fuzz
 
 from lariska_bot.config import (AI_KEY, MESSAGES, PREFIX_QUESTION, ANSWERS,
-                                MODEL, TEMPERATURE, MAX_TOKENS, TOP_P,
-                                FREQUENCY_PENALTY, PRESENCE_PENALTY)
-
+                                MODEL)
 
 openai.api_key = AI_KEY
 
@@ -21,20 +19,8 @@ async def flood_controlling(*args, **kwargs):
 def get_ai_answer(question):
     question_lariska = f'{PREFIX_QUESTION}\n{question}'
 
-    # response = openai.Completion.create(
-    #     model=MODEL,
-    #     prompt=question_lariska,
-    #     temperature=TEMPERATURE,
-    #     max_tokens=MAX_TOKENS,
-    #     top_p=TOP_P,
-    #     frequency_penalty=FREQUENCY_PENALTY,
-    #     presence_penalty=PRESENCE_PENALTY,
-    # )
-    #
-    # return response['choices'][0]['text']
-
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model=MODEL,
         messages=[
             {"role": "user", "content": question_lariska},
         ]

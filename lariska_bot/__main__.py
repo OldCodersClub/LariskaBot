@@ -1,3 +1,5 @@
+import logging
+
 from aiogram.utils.executor import start_webhook
 
 from lariska_bot.config import (

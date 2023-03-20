@@ -1,4 +1,3 @@
-import logging
 from datetime import datetime, timedelta
 from random import choice
 
@@ -7,7 +6,7 @@ from aiogram import types
 from aiogram.dispatcher.filters import Text
 
 from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
-                                BOT_FIRST_NAME, BOT_USER_NAME, RATING_LIMIT,
+                                BOT_FIRST_NAME, RATING_LIMIT,
                                 FLOOD_RATE, WEEKEND_MESSAGE)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
