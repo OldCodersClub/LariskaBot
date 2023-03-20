@@ -7,6 +7,8 @@
 
 Телеграмм-бот для чата [@OldCodersClub](https://t.me/oldcodersclub)
 
+[![Lariska](./lariska_bot/avatar.jpg)](https://t.me/oldcodersclub)
+
 Бот использует приоритеты при поиске и генерации ответов для пользователей:
 
 - фильтры (handler) aiogram (самый приоритетный)
