@@ -18,13 +18,13 @@
 
 Любой ниже расположенный фильтр срабатывает, только если были пропущены все расположенные выше.
 
-### [Пустой шаблон для деплоя](https://railway.app/template/U-zkJQ?referralCode=jUyx2Z)
+### [Пустой шаблон для деплоя](https://railway.app/template/-S3lVz?referralCode=jUyx2Z)
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/U-zkJQ?referralCode=jUyx2Z)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/-S3lVz?referralCode=jUyx2Z)
 
 #### Переменные
 
-- `BOT_TOKEN` - токен телеграмм бота.  
-- `RAILWAY_APP_NAME` - часть урл приложения (можно получить при деплое).  
-- `CHAT_ID` - ID телеграмм чата, в котором разрешено работать боту. Необходимо добавить в список `WORKS_CHATS` в файле [`config.py`](lariska_bot/config.py). Можно добавить несколько.  
-- `AI_KEY` - токен OpenAI API.
+- `BOT_TOKEN` - токен Telegram-бота
+- `CHAT_ID` - ID чата, в котором разрешено работать боту.
+- `AI_KEY` - OpenAI API токен
+- `DOMAIN` - URL-адрес с названием приложения. После развертывания перейдите в настройки проекта (`Settings`) и скопируйте домен из раздела `Domains`. Это должно быть похоже на `worker-production-XXXX.up.railway.app`. Это и будет значение для переменной `DOMAIN`.
