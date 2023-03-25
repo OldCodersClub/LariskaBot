@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+
+  lariska_bot:
+        container_name: LariskaBot
+        image: lariska_bot
+
+        build: .
+
+        environment:
+            - BOT_TOKEN=${BOT_TOKEN}
+            - VCHAT_ID=${VCHAT_ID}
+            - DCHAT_ID=${DCHAT_ID}
+            - SCHAT_ID=${SCHAT_ID}
+            - AI_KEY=${AI_KEY}
+            - MODEL=${MODEL}
+
+        ports:
+            - "443:443"
+
+        volumes:
+          - ./logs:/~/LariskaBot/logs
+
+        restart: on-failure
+
+volumes:
+  logs:
+
+
+# -------------------------------
+# Create and start container:
+# $ export BOT_TOKEN=<BOT_TOKEN>
+# $ export VCHAT_ID=<VCHAT_ID>
+# $ export DCHAT_ID=<DCHAT_ID>
+# $ export SCHAT_ID=<SCHAT_ID>
+# $ export AI_KEY=<AI_KEY>
+# $ export MODEL=<MODEL>
+# $ docker-compose up -d
+# -------------------------------
+# Stop lifted containers:
+# $ docker-compose stop
+# -------------------------------
+# Start stopped containers
+# $ docker-compose start
+# -------------------------------
+# Stop and delete containers and network:
+# $ docker-compose down
+# -------------------------------
+# Remove image:
+# $ docker rmi lariska_bot
+# -------------------------------
+# Clear logs:
+# $ sudo rm -rf logs/*

@@ -7,10 +7,10 @@ from aiogram.dispatcher.filters import Text
 
 from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
                                 BOT_FIRST_NAME, RATING_LIMIT,
-                                FLOOD_RATE, WEEKEND_MESSAGE, L_USERS)
+                                FLOOD_RATE, L_USERS)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
-                                              get_ai_answer, is_work_day)
+                                              get_ai_answer)
 
 
 @dp.message_handler(Text(contains=['говно'], ignore_case=True))
@@ -37,12 +37,6 @@ async def where_to_begin(message: types.Message):
     await message.reply(MESSAGES['start_here'])
     await message.answer(MESSAGES['start_video'])
     await message.answer(MESSAGES['message_links'])
-
-
-# @dp.message_handler(Text(contains=['лариска', 'бот'], ignore_case=True))
-# async def lariska_bot_reply(message: types.Message):
-#     await message.reply(MESSAGES['lariska_bot'])
-#     await message.answer(MESSAGES['forks'])
 
 
 @dp.message_handler(Text(contains=['https://t.me/oldcoders_bar'],
@@ -84,15 +78,8 @@ async def text_reply(message: types.Message):
     if str(message.chat.id) in WORKS_CHATS:
         if message.text.startswith(BOT_FIRST_NAME):
             if username in L_USERS:
-
-                present_year = present_date.year
-                present_month = present_date.month
-                present_day = present_date.day
-                if is_work_day(present_year, present_month, present_day):
-                    await message.reply(choice(REPLICAS['waiting_lariska']))
-                    await message.answer(get_ai_answer(message.text))
-                else:
-                    await message.reply(WEEKEND_MESSAGE)
+                await message.reply(choice(REPLICAS['waiting_lariska']))
+                await message.answer(get_ai_answer(message.text))
 
             else:
                 await message.reply(choice(REPLICAS['n_users']))

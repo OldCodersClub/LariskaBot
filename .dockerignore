@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Byte-compiled / optimized / DLL files
+lariska_bot/__pycache__/
+
+# Distribution / packaging
+env/
+
+# Virtual environment
+lariska_bot/.env
+
+# PyCharm
+.idea
+
+# user
+logs
+brief.*
+LICENSE
+Procfile
+README.md

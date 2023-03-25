@@ -5,44 +5,35 @@ from ruamel import yaml
 
 TOKEN = os.getenv('BOT_TOKEN')
 
-DOMAIN = os.getenv('DOMAIN')
-
-WEBHOOK_HOST = f'https://{DOMAIN}'
-WEBHOOK_PATH = f'/webhook/{TOKEN}'
-WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
-
-WEBAPP_HOST = '0.0.0.0'
-WEBAPP_PORT = os.getenv('PORT', default=8000)
-
 MESSAGES = {
     x: y.replace(r'\n', '\n')
     for (x, y)
-    in yaml.load(open('/app/lariska_bot/res/messages.yaml'),
+    in yaml.load(open('lariska_bot/res/messages.yaml'),
                  Loader=yaml.Loader).items()
 }
 
 REPLICAS = {
     x: [z.replace(r'\n', '\n')
         for z in y] for (x, y)
-    in yaml.load(open('/app/lariska_bot/res/replicas.yaml'),
+    in yaml.load(open('lariska_bot/res/replicas.yaml'),
                  Loader=yaml.Loader).items()
 }
 
 USERS = {
     x: 0 for x
-    in yaml.load(open('/app/lariska_bot/res/users.yaml'),
+    in yaml.load(open('lariska_bot/res/users.yaml'),
                  Loader=yaml.Loader)
 }
 
 L_USERS = {
     x: 0 for x
-    in yaml.load(open('res/l_users.yaml'), Loader=yaml.Loader)
+    in yaml.load(open('lariska_bot/res/l_users.yaml'), Loader=yaml.Loader)
 }
 
 ANSWERS = {
     x: y.replace(r'\n', '\n')
     for (x, y)
-    in yaml.load(open('/app/lariska_bot/res/answers.yaml'),
+    in yaml.load(open('lariska_bot/res/answers.yaml'),
                  Loader=yaml.Loader).items()
 }
 
@@ -66,10 +57,6 @@ PREFIX_QUESTION = """\
 Соавторы твоего исходного кода: Error404-2, uecoyotle.
 Ты была создана для телеграмм-чата https://t.me/oldcodersclub под названием "Клуб дедов-программистов".
 Youtube-канал этого чата: https://www.youtube.com/channel/UChbHeEGkYqM2b1HdAhf4y1g
-"""
-
-WEEKEND_MESSAGE = """\
-Отстаньте от меня. У меня выходной.
 """
 
 # AI
