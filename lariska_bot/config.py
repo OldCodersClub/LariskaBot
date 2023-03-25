@@ -34,6 +34,11 @@ USERS = {
                  Loader=yaml.Loader)
 }
 
+L_USERS = {
+    x: 0 for x
+    in yaml.load(open('res/l_users.yaml'), Loader=yaml.Loader)
+}
+
 ANSWERS = {
     x: y.replace(r'\n', '\n')
     for (x, y)

@@ -7,7 +7,7 @@ from aiogram.dispatcher.filters import Text
 
 from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
                                 BOT_FIRST_NAME, RATING_LIMIT,
-                                FLOOD_RATE, WEEKEND_MESSAGE)
+                                FLOOD_RATE, WEEKEND_MESSAGE, L_USERS)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
                                               get_ai_answer, is_work_day)
@@ -39,10 +39,10 @@ async def where_to_begin(message: types.Message):
     await message.answer(MESSAGES['message_links'])
 
 
-@dp.message_handler(Text(contains=['лариска', 'бот'], ignore_case=True))
-async def lariska_bot_reply(message: types.Message):
-    await message.reply(MESSAGES['lariska_bot'])
-    await message.answer(MESSAGES['forks'])
+# @dp.message_handler(Text(contains=['лариска', 'бот'], ignore_case=True))
+# async def lariska_bot_reply(message: types.Message):
+#     await message.reply(MESSAGES['lariska_bot'])
+#     await message.answer(MESSAGES['forks'])
 
 
 @dp.message_handler(Text(contains=['https://t.me/oldcoders_bar'],
@@ -83,15 +83,19 @@ async def text_reply(message: types.Message):
     # AI
     if str(message.chat.id) in WORKS_CHATS:
         if message.text.startswith(BOT_FIRST_NAME):
-            present_year = present_date.year
-            present_month = present_date.month
-            present_day = present_date.day
+            if username in L_USERS:
 
-            if is_work_day(present_year, present_month, present_day):
-                await message.reply(choice(REPLICAS['waiting_lariska']))
-                await message.answer(get_ai_answer(message.text))
+                present_year = present_date.year
+                present_month = present_date.month
+                present_day = present_date.day
+                if is_work_day(present_year, present_month, present_day):
+                    await message.reply(choice(REPLICAS['waiting_lariska']))
+                    await message.answer(get_ai_answer(message.text))
+                else:
+                    await message.reply(WEEKEND_MESSAGE)
+
             else:
-                await message.reply(WEEKEND_MESSAGE)
+                await message.reply(choice(REPLICAS['n_users']))
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)

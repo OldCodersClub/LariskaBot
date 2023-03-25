@@ -4,7 +4,7 @@ hello: Привет, дорогуша!
 start_here: Начни отсюда:\nhttps://github.com/OldCodersClub/faq
 start_video: Или отсюда:\nhttps://www.youtube.com/watch?v=_PfQvdDq_bY
 message_links: Там много полезных ссылок под видео.
-lariska_bot: Да. Я бот.\nВот репозиторий:\nhttps://github.com/OldCodersClub/LariskaBot
-forks: Можете форкать, реквестить и деплоить
+#lariska_bot: Да. Я бот.\nВот репозиторий:\nhttps://github.com/OldCodersClub/LariskaBot
+#forks: Можете форкать, реквестить и деплоить
 flood_reply: Помедленнее, дорогуша!\nЯ записываю...
 welcome: Привет!\nЯ Лариска - бот из Клуба дедов-программистов.\nВсе мои команды секретные.\nИх можно только в репе посмотреть:\nhttps://github.com/OldCodersClub/LariskaBot
