@@ -5,8 +5,7 @@ import openai
 import requests
 from fuzzywuzzy import fuzz
 
-from lariska_bot.config import (AI_KEY, MESSAGES, PREFIX_QUESTION, ANSWERS,
-                                MODEL)
+from lariska_bot import (AI_KEY, MESSAGES, PREFIX_QUESTION, ANSWERS, MODEL)
 
 openai.api_key = AI_KEY
 

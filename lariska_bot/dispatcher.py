@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
-from lariska_bot.config import TOKEN
+from lariska_bot import TOKEN
 
 
 bot = Bot(token=TOKEN)

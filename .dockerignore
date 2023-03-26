@@ -14,7 +14,7 @@ lariska_bot/__pycache__/
 env/
 
 # Virtual environment
-lariska_bot/.env
+.env
 
 # PyCharm
 .idea

@@ -5,9 +5,8 @@ import pytz
 from aiogram import types
 from aiogram.dispatcher.filters import Text
 
-from lariska_bot.config import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
-                                BOT_FIRST_NAME, RATING_LIMIT,
-                                FLOOD_RATE, L_USERS)
+from lariska_bot import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
+                         BOT_FIRST_NAME, RATING_LIMIT, FLOOD_RATE, L_USERS)
 from lariska_bot.dispatcher import dp
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer,
                                               get_ai_answer)
