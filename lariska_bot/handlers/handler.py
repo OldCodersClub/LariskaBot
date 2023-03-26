@@ -74,14 +74,16 @@ async def text_reply(message: types.Message):
         return
 
     # AI
-    if str(message.chat.id) in WORKS_CHATS:
-        if message.text.startswith(BOT_FIRST_NAME):
+    if message.text.startswith(BOT_FIRST_NAME):
+        if str(message.chat.id) in WORKS_CHATS:
             if username in L_USERS:
                 await message.reply(choice(REPLICAS['waiting_lariska']))
                 await message.answer(get_ai_answer(message.text))
 
             else:
                 await message.reply(choice(REPLICAS['n_users']))
+        else:
+            await message.reply(choice(REPLICAS['n_users']))
 
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
