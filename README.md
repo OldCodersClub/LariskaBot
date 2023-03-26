@@ -18,6 +18,50 @@
 
 Любой ниже расположенный фильтр срабатывает, только если были пропущены все расположенные выше.
 
+### Запуск в Докере
+
+Создать и запустить контейнер:
+
+```bash
+$ export BOT_TOKEN=<BOT_TOKEN>
+$ export VCHAT_ID=<VCHAT_ID>
+$ export DCHAT_ID=<DCHAT_ID>
+$ export SCHAT_ID=<SCHAT_ID>
+$ export AI_KEY=<AI_KEY>
+$ export MODEL=<MODEL>
+$ docker-compose up -d
+```
+
+Остановить запущенный контейнер:
+
+```bash
+$ docker-compose stop
+```
+
+Запустить остановленный контейнер:
+
+```bash
+$ docker-compose start
+```
+
+Остановить и удалить контейнер и сеть:
+
+```bash
+$ docker-compose down
+```
+
+Удалить докер-образ:
+
+```bash
+$ docker rmi lariska_bot
+```
+
+Очистить логи:
+
+```bash
+$ sudo rm -rf logs/*
+```
+
 ### [Пустой шаблон для деплоя](https://railway.app/template/-S3lVz?referralCode=jUyx2Z)
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/-S3lVz?referralCode=jUyx2Z)
