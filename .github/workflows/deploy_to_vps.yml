@@ -1,0 +1,57 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.LARISKA_BOT_SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.LARISKA_BOT_SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Run command on remote server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.LARISKA_BOT_SSH_HOST }}
+          username: ${{ secrets.LARISKA_BOT_SSH_USER }}
+          key: ${{ secrets.LARISKA_BOT_SSH_PRIVATE_KEY }}
+          script: |
+            echo '--- START WORK ON REMOTE SERVER ---';
+            cd LariskaBot;
+            echo '--- EXPORT VARIABLES ---';
+            export BOT_TOKEN=${{ secrets.LARISKA_BOT_TOKEN }};
+            export AI_KEY=${{ secrets.LARISKA_AI_KEY }};
+            export MODEL=${{ secrets.LARISKA_MODEL }};
+            export VCHAT_ID=${{ vars.VCHAT_ID }}
+            export DCHAT_ID=${{ vars.DCHAT_ID }}
+            export SCHAT_ID=${{ vars.SCHAT_ID }}
+            echo '--- LIST OF FILES ---';
+            ls -al;
+            echo '--- GIT PULL ---'
+            git pull;
+            echo '--- DOCKER OPERATIONS ---';
+            docker-compose down;
+            docker rmi lariska_bot;
+            echo '--- LIST OF DOCKER CONTAINERS ---';
+            docker ps -a;
+            echo '--- UP CONTAINER ---';
+            docker-compose up -d;
+            echo '--- LIST OF DOCKER CONTAINERS ---';
+            docker ps -a;
