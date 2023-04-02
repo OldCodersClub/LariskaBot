@@ -1,6 +1,7 @@
 # Git
 .git
 .gitignore
+.github/
 
 # Docker
 docker-compose.yml
@@ -23,5 +24,4 @@ env/
 logs
 brief.*
 LICENSE
-Procfile
 README.md
