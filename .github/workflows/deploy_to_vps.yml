@@ -38,7 +38,6 @@ jobs:
             echo '--- EXPORT VARIABLES ---';
             export BOT_TOKEN=${{ secrets.LARISKA_BOT_TOKEN }};
             export AI_KEY=${{ secrets.LARISKA_AI_KEY }};
-            export MODEL=${{ secrets.LARISKA_MODEL }};
             export VCHAT_ID=${{ vars.VCHAT_ID }}
             export DCHAT_ID=${{ vars.DCHAT_ID }}
             export SCHAT_ID=${{ vars.SCHAT_ID }}

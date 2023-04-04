@@ -19,11 +19,10 @@ CMD ["python", "-m", "lariska_bot"]
 # Create and run a new container from an image:
 # $ docker run -d --name LariskaBot \
 #    --env "BOT_TOKEN=<BOT_TOKEN>" \
+#    --env "AI_KEY=<AI_KEY>" \
 #    --env "VCHAT_ID=<VCHAT_ID>" \
 #    --env "DCHAT_ID=<DCHAT_ID>" \
 #    --env "SCHAT_ID=<SCHAT_ID>" \
-#    --env "AI_KEY=<AI_KEY>" \
-#    --env "MODEL=<MODEL>" \
 #    lariska_bot
 # -------------------------------
 # Stop running container:

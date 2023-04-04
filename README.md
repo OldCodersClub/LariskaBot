@@ -24,11 +24,10 @@
 
 ```bash
 $ export BOT_TOKEN=<BOT_TOKEN>
+$ export AI_KEY=<AI_KEY>
 $ export VCHAT_ID=<VCHAT_ID>
 $ export DCHAT_ID=<DCHAT_ID>
 $ export SCHAT_ID=<SCHAT_ID>
-$ export AI_KEY=<AI_KEY>
-$ export MODEL=<MODEL>
 $ docker-compose up -d
 ```
 

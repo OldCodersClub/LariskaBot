@@ -16,7 +16,7 @@ WORKS_CHATS = [
 
 # AI
 AI_KEY = os.getenv('AI_KEY')
-MODEL = os.getenv('MODEL')
+MODEL = 'gpt-3.5-turbo'
 
 ANSWERS = {
     x: y.replace(r'\n', '\n')
