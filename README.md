@@ -5,6 +5,11 @@
 [![watchers](https://img.shields.io/github/watchers/OldCodersClub/LariskaBot?logoColor=red&style=social)](https://github.com/OldCodersClub/LariskaBot/watchers)
 [![wakatime](https://wakatime.com/badge/user/8cc8aa38-4041-409b-9d27-a85e5b897ad4/project/9429f9d1-0e7c-4945-a1fd-9e085f3d6067.svg?style=social)](https://wakatime.com/@Voko/projects/xqfpkutwnj?start=2023-03-06&end=2023-03-12)
 
+[![License: MIT](https://img.shields.io/github/license/OldCodersClub/LariskaBot?logo=github&style=social)](https://opensource.org/licenses/MIT)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/OldCodersClub/LariskaBot/deploy_to_vps.yml?logo=githubactions&style=social)](https://github.com/OldCodersClub/LariskaBot/actions/workflows/deploy_to_vps.yml)
+[![Branch master](https://img.shields.io/github/checks-status/OldCodersClub/LariskaBot/master?logo=github&style=social)](https://github.com/OldCodersClub/LariskaBot/tree/master)
+[![Last Commit](https://img.shields.io/github/last-commit/OldCodersClub/LariskaBot?logo=github&style=social)](https://github.com/OldCodersClub/LariskaBot/commits/master)
+
 Телеграмм-бот для чата [@OldCodersClub](https://t.me/oldcodersclub)
 
 [![Lariska](lariska_bot/res/avatar.jpg)](https://t.me/oldcodersclub)
