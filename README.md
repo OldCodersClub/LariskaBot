@@ -77,7 +77,7 @@ $ sudo rm -rf logs/*
 - `AI_KEY` - OpenAI API токен
 - `DOMAIN` - URL-адрес с названием приложения. После развертывания перейдите в настройки проекта (`Settings`) и скопируйте домен из раздела `Domains`. Это должно быть похоже на `worker-production-XXXX.up.railway.app`. Это и будет значение для переменной `DOMAIN`.
 
-### [Made in](https://www.jetbrains.com/pycharm/)
+### [Made with Support Open Source](https://www.jetbrains.com/community/opensource/#support)
 
 <a href="https://www.jetbrains.com/pycharm/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/PyCharm_icon.svg" alt="pycharm" height="150" title="pycharm"></a>
 <a href="https://www.jetbrains.com/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" alt="jetbrains" height="150" title="jetbrains"></a>
