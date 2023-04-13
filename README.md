@@ -10,7 +10,12 @@
 [![Branch master](https://img.shields.io/github/checks-status/OldCodersClub/LariskaBot/master?logo=github&style=social)](https://github.com/OldCodersClub/LariskaBot/tree/master)
 [![Last Commit](https://img.shields.io/github/last-commit/OldCodersClub/LariskaBot?logo=github&style=social)](https://github.com/OldCodersClub/LariskaBot/commits/master)
 
-Телеграмм-бот для чата [@OldCodersClub](https://t.me/oldcodersclub)
+### [Made with Support Open Source](https://www.jetbrains.com/community/opensource/#support)
+
+<a href="https://www.jetbrains.com/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" alt="jetbrains" height="150" title="jetbrains"></a>
+<a href="https://www.jetbrains.com/pycharm/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/PyCharm_icon.svg" alt="pycharm" height="150" title="pycharm"></a>
+
+### Телеграмм-бот для чата [@OldCodersClub](https://t.me/oldcodersclub)
 
 [![Lariska](lariska_bot/res/avatar.jpg)](https://t.me/oldcodersclub)
 
@@ -76,8 +81,3 @@ $ sudo rm -rf logs/*
 - `CHAT_ID` - ID чата, в котором разрешено работать боту.
 - `AI_KEY` - OpenAI API токен
 - `DOMAIN` - URL-адрес с названием приложения. После развертывания перейдите в настройки проекта (`Settings`) и скопируйте домен из раздела `Domains`. Это должно быть похоже на `worker-production-XXXX.up.railway.app`. Это и будет значение для переменной `DOMAIN`.
-
-### [Made with Support Open Source](https://www.jetbrains.com/community/opensource/#support)
-
-<a href="https://www.jetbrains.com/pycharm/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/PyCharm_icon.svg" alt="pycharm" height="150" title="pycharm"></a>
-<a href="https://www.jetbrains.com/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" alt="jetbrains" height="150" title="jetbrains"></a>
