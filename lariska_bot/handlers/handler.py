@@ -70,7 +70,7 @@ async def text_reply(message: types.Message):
     answer, rating, = get_answer(message.text)
 
     if rating >= RATING_LIMIT:
-        await message.reply(f'{answer}', parse_mode=types.ParseMode.MARKDOWN)
+        await message.reply(f'{answer}')
         return
 
     # AI
