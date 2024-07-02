@@ -1,48 +1,3 @@
-Windows PowerShell
-(C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены.
-
-Установите последнюю версию PowerShell для новых функций и улучшения! https://aka.ms/PSWindows
-
-(venv) ~\PycharmProjects\LariskaBot git:[main]
-pip install "ruamel.yaml<0.18.0"
-Requirement already satisfied: ruamel.yaml<0.18.0 in c:\users\igorl\pycharmprojects\lariskabot\venv\lib\site-packages (0.17.21)
-
-[notice] A new release of pip is available: 23.2.1 -> 24.1.1
-[notice] To update, run: python.exe -m pip install --upgrade pip
-(venv) ~\PycharmProjects\LariskaBot git:[main]
- python.exe -m pip install --upgrade pip
-Requirement already satisfied: pip in c:\users\igorl\pycharmprojects\lariskabot\venv\lib\site-packages (23.2.1)
-Collecting pip
-  Obtaining dependency information for pip from https://files.pythonhosted.org/packages/f4/ab/e3c039b5ddba9335bd8f82d599eb310de1d2a2db0411b8d804d507405c74/pip-24.1.1-py3-none-any.whl.metadata
-  Using cached pip-24.1.1-py3-none-any.whl.metadata (3.6 kB)
-Using cached pip-24.1.1-py3-none-any.whl (1.8 MB)
-Installing collected packages: pip
-  Attempting uninstall: pip
-    Found existing installation: pip 23.2.1
-    Uninstalling pip-23.2.1:
-      Successfully uninstalled pip-23.2.1
-Successfully installed pip-24.1.1
-(venv) ~\PycharmProjects\LariskaBot git:[main]
-pip install "ruamel.yaml>0.17.0"
-Requirement already satisfied: ruamel.yaml>0.17.0 in c:\users\igorl\pycharmprojects\lariskabot\venv\lib\site-packages (0.17.21)
-(venv) ~\PycharmProjects\LariskaBot git:[main]
-pip install "ruamel.yaml>0.18.0"
-Collecting ruamel.yaml>0.18.0
-  Downloading ruamel.yaml-0.18.6-py3-none-any.whl.metadata (23 kB)
-Collecting ruamel.yaml.clib>=0.2.7 (from ruamel.yaml>0.18.0)
-  Downloading ruamel.yaml.clib-0.2.8-cp311-cp311-win_amd64.whl.metadata (2.3 kB)
-Downloading ruamel.yaml-0.18.6-py3-none-any.whl (117 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.8/117.8 kB 762.6 kB/s eta 0:00:00
-Downloading ruamel.yaml.clib-0.2.8-cp311-cp311-win_amd64.whl (118 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.0/118.0 kB 2.3 MB/s eta 0:00:00
-Installing collected packages: ruamel.yaml.clib, ruamel.yaml
-  Attempting uninstall: ruamel.yaml
-    Found existing installation: ruamel.yaml 0.17.21
-    Uninstalling ruamel.yaml-0.17.21:
-      Successfully uninstalled ruamel.yaml-0.17.21
-Successfully installed ruamel.yaml-0.18.6 ruamel.yaml.clib-0.2.8
-(venv) ~\PycharmProjects\LariskaBot git:[main]
-pip freeze
 aiofiles==23.2.1
 aiogram==3.8.0
 aiohttp==3.9.5
@@ -58,6 +13,7 @@ config==0.5.1
 contourpy==1.2.1
 contrib==0.3.0
 cycler==0.12.1
+environs==11.0.0
 fonttools==4.53.0
 frozenlist==1.4.1
 fuzzywuzzy==0.18.0
@@ -67,6 +23,7 @@ jsonschema-specifications==2023.12.1
 kiwisolver==1.4.5
 Levenshtein==0.20.9
 magic-filter==1.0.12
+marshmallow==3.21.3
 matplotlib==3.9.0
 multidict==6.0.4
 numpy==2.0.0

@@ -1,52 +1,51 @@
 import logging
+
+from aiogram import Router
+from aiogram.filters import Command, CommandStart
 from aiogram import F
 from aiogram.types import Message
+
 import pytz
 from datetime import datetime, timedelta
 from random import choice
-from lariska_bot import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,BOT_FIRST_NAME, RATING_LIMIT, FLOOD_RATE, L_USERS)
+
+from lariska_bot.config_data import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
+                                     BOT_FIRST_NAME, RATING_LIMIT, FLOOD_RATE, L_USERS)
 from lariska_bot.handlers.controllers import (flood_controlling, get_answer, get_ai_answer)
-from lariska_bot.__main__ import dp
+from create_dp import dp
 
 logger = logging.getLogger(__name__)
+router = Router()
 
-@dp.message_handler(F.Text.contains('говно'))
+@dp.message(F.Text.contains('говно'))
 async def skirmish_reply(message: Message):
     await message.reply(MESSAGES['skirmish'])
 
 
-@dp.message_handler(F.Text.contains('привет', 'с чего начать'))
-async def hello_where_to_reply(message: Message):
-    await message.reply(MESSAGES['hello'])
-    await message.answer(MESSAGES['start_here'])
-    await message.answer(MESSAGES['start_video'])
-    await message.answer(MESSAGES['message_links'])
-
-
-@dp.message_handler(F.Text.contains('привет'))
+@dp.message(F.Text.contains('привет'))
 async def hello_reply(message: Message):
     await message.reply(MESSAGES['hello'])
 
 
-@dp.message_handler(F.Text.contains('с чего начать'))
+@dp.message(F.Text.contains('с чего начать'))
 async def where_to_begin(message: Message):
     await message.reply(MESSAGES['start_here'])
     await message.answer(MESSAGES['start_video'])
     await message.answer(MESSAGES['message_links'])
 
 
-@dp.message_handler(F.Text.contains('https://t.me/oldcoders_bar'))
+@dp.message(F.Text.contains('https://t.me/oldcoders_bar'))
 async def bar_reply(message: Message):
     await message.reply(choice(REPLICAS['bar']))
 
 
-@dp.message_handler(F.CommandStart)
+@dp.message(CommandStart())
 async def send_welcome(message: Message):
     await message.answer(MESSAGES['welcome'])
 
 
-@dp.message_handler(F.text)
-@dp.throttled(flood_controlling, rate=FLOOD_RATE)
+@dp.message(F.text)
+# @dp.throttled(flood_controlling, rate=FLOOD_RATE)
 async def text_reply(message: Message):
     logger.debug(f'Message: {message.text}')
     username = message.from_user.username
@@ -91,6 +90,6 @@ async def text_reply(message: Message):
             await message.reply(choice(REPLICAS['n_users']))
 
 
-@dp.message_handler(F.photo)
+@dp.message(F.photo)
 async def photo_reply(message: Message):
     await message.reply(choice(REPLICAS['photo_reply']))

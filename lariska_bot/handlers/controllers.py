@@ -5,29 +5,18 @@ import openai
 import requests
 from fuzzywuzzy import fuzz
 
-from lariska_bot import (AI_KEY, MESSAGES, PREFIX_QUESTION, ANSWERS, MODEL)
+from lariska_bot.config_data import (AI_KEY, MESSAGES, PREFIX_QUESTION, ANSWERS, MODEL)
 
 openai.api_key = AI_KEY
 
-
-# noinspection PyUnusedLocal
 async def flood_controlling(*args, **kwargs):
     await args[0].reply(MESSAGES['flood_reply'])
-
-
 def get_ai_answer(question):
     question_lariska = f'{PREFIX_QUESTION}\n{question}'
-
     response = openai.ChatCompletion.create(
-        model=MODEL,
-        messages=[
-            {"role": "user", "content": question_lariska},
-        ]
+        model=MODEL,messages=[{"role": "user", "content": question_lariska},]
     )
-
     return response['choices'][0]['message']['content']
-
-
 def get_answer(text):
     text = text.lower().strip()
     try:
@@ -42,8 +31,6 @@ def get_answer(text):
     except Exception as e:
         logging.exception(e)
         return None, 0
-
-
 def is_work_day(year, month, day):
     url = f'https://raw.githubusercontent.com/d10xa/holidays-calendar/master/json/consultant{year}.json'
     response = requests.get(url)
