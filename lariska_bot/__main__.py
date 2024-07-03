@@ -4,7 +4,7 @@ import sys
 from aiogram import Bot,Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from config_data.config import Config, load_config
-from handlers import handler
+from handlers.handler import router
 
 logger = logging.getLogger(__name__)
 dp = Dispatcher()
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     logger.debug('Запускаем диспетчер')
 
     # Регистрируем роутер из модуля handlers
-    dp.include_router(handler.router)
+    dp.include_router(router)
 
     # Пропускаем накопившиеся апдейты и запускаем polling
     bot.delete_webhook(drop_pending_updates=True) # Перезапускаем диспетчер
