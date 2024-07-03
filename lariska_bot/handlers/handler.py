@@ -10,41 +10,42 @@ from datetime import datetime, timedelta
 from random import choice
 
 from lariska_bot.config_data import (MESSAGES, REPLICAS, USERS, WORKS_CHATS,
-                                     BOT_FIRST_NAME, RATING_LIMIT, FLOOD_RATE, L_USERS)
-from lariska_bot.handlers.controllers import (flood_controlling, get_answer, get_ai_answer)
-from create_dp import dp
+                                     BOT_FIRST_NAME, RATING_LIMIT, L_USERS)
+from lariska_bot.handlers.controllers import (get_answer, get_ai_answer)
+
 
 logger = logging.getLogger(__name__)
 router = Router()
 
-@dp.message(F.Text.contains('говно'))
+
+@router.message(F.text.lower().contains('говно'))
 async def skirmish_reply(message: Message):
     await message.reply(MESSAGES['skirmish'])
 
 
-@dp.message(F.Text.contains('привет'))
+@router.message(F.text.lower().contains('привет'))
 async def hello_reply(message: Message):
     await message.reply(MESSAGES['hello'])
 
 
-@dp.message(F.Text.contains('с чего начать'))
+@router.message(F.text.lower().contains('с чего начать'))
 async def where_to_begin(message: Message):
     await message.reply(MESSAGES['start_here'])
     await message.answer(MESSAGES['start_video'])
     await message.answer(MESSAGES['message_links'])
 
 
-@dp.message(F.Text.contains('https://t.me/oldcoders_bar'))
+@router.message(F.text.lower().contains('https://t.me/oldcoders_bar'))
 async def bar_reply(message: Message):
     await message.reply(choice(REPLICAS['bar']))
 
 
-@dp.message(CommandStart())
+@router.message(CommandStart())
 async def send_welcome(message: Message):
     await message.answer(MESSAGES['welcome'])
 
 
-@dp.message(F.text)
+@router.message(F.text)
 # @dp.throttled(flood_controlling, rate=FLOOD_RATE)
 async def text_reply(message: Message):
     logger.debug(f'Message: {message.text}')
@@ -90,6 +91,6 @@ async def text_reply(message: Message):
             await message.reply(choice(REPLICAS['n_users']))
 
 
-@dp.message(F.photo)
+@router.message(F.photo)
 async def photo_reply(message: Message):
     await message.reply(choice(REPLICAS['photo_reply']))

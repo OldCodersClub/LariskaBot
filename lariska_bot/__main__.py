@@ -1,22 +1,28 @@
 import logging
-from aiogram import Bot, Dispatcher
+import sys
+
+from aiogram import Bot,Dispatcher
 from aiogram.client.default import DefaultBotProperties
-from aiogram.fsm.storage.memory import MemoryStorage
 from config_data.config import Config, load_config
 from handlers import handler
-from create_dp import dp
 
+logger = logging.getLogger(__name__)
+dp = Dispatcher()
 
 if __name__ == '__main__':
-    logger = logging.getLogger(__name__)
-    storage = MemoryStorage()
-    # dp = Dispatcher() # Подготовка диспетчера
 
     # Конфигурируем логирование
     logging.basicConfig(
         level=logging.DEBUG,
         format='%(filename)s:%(lineno)d #%(levelname)-8s '
                '[%(asctime)s] - %(name)s - %(message)s')
+
+    logger.debug('Путь sys.path:')
+    logger.debug(sys.path)
+    logger.debug('Встроенные модули sys.builtin_module_names:')
+    logger.debug(sys.builtin_module_names)
+    logger.debug('Модули из стандартной библиотеки Python sys.stdlib_module_names:')
+    logger.debug(sys.stdlib_module_names)
 
     # Загружаем конфиг в переменную config
     config: Config = load_config()

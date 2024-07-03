@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from environs import Env
-from config_data import TOKEN
+from lariska_bot.config_data import TOKEN
 
 
 @dataclass
@@ -16,5 +15,5 @@ class Config:
 # экземпляр класса Config с заполненными полями token и admin_ids
 def load_config(path: str | None = None) -> Config:
    return Config(
-        tg_bot=TgBot(token=TOKEN)
+        tg_bot = TgBot(token=TOKEN)
     )
